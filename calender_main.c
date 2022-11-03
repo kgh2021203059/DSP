@@ -1,6 +1,7 @@
 #include <ncurses.h>
 
 int main(){
+	char* cal_form;
 	initscr();
 	noecho();
 	WINDOW * input_ym;
