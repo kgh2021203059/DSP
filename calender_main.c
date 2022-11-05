@@ -1,7 +1,6 @@
 #include <ncurses.h>
 
 int main(){
-	char* cal_form;
 	initscr();
 	noecho();
 	WINDOW * input_ym;
@@ -10,20 +9,18 @@ int main(){
 		endwin();
 		return -1;
 	}
-	start_color();
-	init_pair(1,COLOR_BLUE,COLOR_WHITE);
+	//start_color();
+	//init_pair(1, COLOR_WHITE, COLOR_BLACK);
 	refresh();
-	input_ym = newwin(7,80,0,0);
+	input_ym = newwin(18,50,0,0);
 	wbkgd(input_ym,COLOR_PAIR(1));
-	wmove(input_ym,3,15);
-	wprintw(input_ym,"Input the date to edit:");
+
+	wborder(input_ym,0,0,0,0,0,0,0,0);
+	mvwhline(input_ym,2,1,'-',48);
 	wrefresh(input_ym);
+	refresh();
 	getch();
-	/*while input until input done*/
-	char date[10] = "2022-11";
-	mvwprintw(input_ym,3,15+24,date);
-	wrefresh(input_ym);
-	getch();
+
 	endwin();
 	return 0;
 }
